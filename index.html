@@ -291,6 +291,37 @@
   .map-wrap iframe { width:100%; height:100%; border:none; filter:grayscale(1) invert(.9) contrast(.88) sepia(20%); opacity:.68; }
   .map-wrap::after { content:''; position:absolute; inset:0; box-shadow:inset 0 0 60px rgba(10,8,6,.5); pointer-events:none; }
 
+  /* DELIVERY CONDITIONS */
+  .delivery-conditions {
+    margin-top: 48px;
+    border: 1px solid rgba(201,169,110,.2);
+    padding: 32px 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .delivery-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 9.5px; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .delivery-title svg { color: var(--gold); flex-shrink: 0; }
+  .delivery-min {
+    font-size: 11px; letter-spacing: .1em; color: var(--cream-dim);
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid rgba(201,169,110,.1);
+  }
+  .delivery-rows { display: flex; flex-direction: column; gap: 0; }
+  .delivery-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 13px 0; border-bottom: 1px solid rgba(201,169,110,.07);
+  }
+  .delivery-row:last-child { border-bottom: none; }
+  .delivery-zone { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--white); font-weight: 400; }
+  .delivery-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--cream-dim); font-weight: 400; }
+  .delivery-price.free { color: var(--gold-light); }
+
   /* FOOTER */
   footer { background:var(--black); padding:56px 60px; border-top:1px solid rgba(201,169,110,.1); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
   .footer-logo { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; color:var(--white); letter-spacing:.1em; }
@@ -543,6 +574,7 @@
     <div class="section-label">El Restaurante</div>
     <h2>El <em>arte</em> de<br>la cocina japonesa</h2>
     <div class="divider-gold"></div>
+    <p>Tottori es el nombre que recibe la capital y provincia de Tottori, en el centro de Japón. Tiene unos 200.000 habitantes y es una zona conocida por sus dunas, sus playas y sus edificios históricos.</p>
     <p>En Tottori Gavà, cada plato es un viaje a los sabores más auténticos de Japón. Nuestra cocina combina técnicas tradicionales con ingredientes seleccionados para ofrecer una experiencia gastronómica única en el corazón de Gavà.</p>
     <p>Ubicados en la illa peatonal del Centre, con terraza exterior y servicio a domicilio. Desde el sushi más delicado hasta los platos calientes, cada elaboración lleva el respeto y la precisión que define la cultura culinaria japonesa.</p>
     <a href="#reservas" class="btn-primary" style="display:inline-block;margin-top:16px;">Hacer una reserva</a>
@@ -575,13 +607,15 @@
       <h2>Especialidades<br><em>de la casa</em></h2>
     </div>
     <div class="menu-tabs">
-      <button class="menu-tab active">Rolls</button>
-      <button class="menu-tab">Nigiris</button>
-      <button class="menu-tab">Cocina</button>
+      <button class="menu-tab active" data-tab="rolls">Rolls</button>
+      <button class="menu-tab" data-tab="nigiris">Nigiris</button>
+      <button class="menu-tab" data-tab="cocina">Cocina</button>
     </div>
   </div>
   <div class="menu-grid">
-    <div class="menu-card reveal">
+
+    <!-- ROLLS -->
+    <div class="menu-card reveal" data-category="rolls">
       <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_3ddfb7f7680d4af5986b55494faff276~mv2_d_1200_1600_s_2.jpeg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_3ddfb7f7680d4af5986b55494faff276~mv2_d_1200_1600_s_2.jpeg" alt="Rainbow Roll" loading="lazy"></div>
       <div class="menu-card-body">
         <div class="card-num">403</div>
@@ -591,7 +625,7 @@
         <div class="card-footer"><span class="card-price">9,65€</span><span class="card-tag">Especialidad</span></div>
       </div>
     </div>
-    <div class="menu-card reveal">
+    <div class="menu-card reveal" data-category="rolls">
       <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_6bcfdbc460fc4858bad6ac24b5c9c3b7~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_6bcfdbc460fc4858bad6ac24b5c9c3b7~mv2.jpg" alt="Tottori Roll" loading="lazy"></div>
       <div class="menu-card-body">
         <div class="card-num">406</div>
@@ -601,7 +635,7 @@
         <div class="card-footer"><span class="card-price">11,30€</span><span class="card-tag">La firma</span></div>
       </div>
     </div>
-    <div class="menu-card reveal">
+    <div class="menu-card reveal" data-category="rolls">
       <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_c4750119a771485aafd2bd1f5908cdce~mv2_d_1200_1600_s_2.jpeg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_c4750119a771485aafd2bd1f5908cdce~mv2_d_1200_1600_s_2.jpeg" alt="Dragon Roll Salmón" loading="lazy"></div>
       <div class="menu-card-body">
         <div class="card-num">404</div>
@@ -611,7 +645,9 @@
         <div class="card-footer"><span class="card-price">9,35€</span><span class="card-tag">Muy pedido</span></div>
       </div>
     </div>
-    <div class="menu-card reveal">
+
+    <!-- NIGIRIS -->
+    <div class="menu-card reveal" data-category="nigiris" style="display:none">
       <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_1989d5a876de41b6adba777ef843a0e7~mv2_d_1600_1200_s_2.jpeg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_1989d5a876de41b6adba777ef843a0e7~mv2_d_1600_1200_s_2.jpeg" alt="Nigiri de Salmón" loading="lazy"></div>
       <div class="menu-card-body">
         <div class="card-num">601</div>
@@ -621,7 +657,29 @@
         <div class="card-footer"><span class="card-price">8,90€</span><span class="card-tag">Nigiri</span></div>
       </div>
     </div>
-    <div class="menu-card reveal">
+    <div class="menu-card reveal" data-category="nigiris" style="display:none">
+      <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_da78a666507b42d38cf9ff20946b1431~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_da78a666507b42d38cf9ff20946b1431~mv2.jpg" alt="Nigiri de Atún" loading="lazy"></div>
+      <div class="menu-card-body">
+        <div class="card-num">602</div>
+        <div class="card-jp">まぐろの握り</div>
+        <h3>Nigiri de Atún</h3>
+        <p>Seis piezas de nigiri con atún rojo fresco sobre arroz de sushi.</p>
+        <div class="card-footer"><span class="card-price">9,50€</span><span class="card-tag">Nigiri</span></div>
+      </div>
+    </div>
+    <div class="menu-card reveal" data-category="nigiris" style="display:none">
+      <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_e859bfe10121452591d61e11f4bb877f~mv2_d_1200_1600_s_2.jpeg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_e859bfe10121452591d61e11f4bb877f~mv2_d_1200_1600_s_2.jpeg" alt="Nigiri Variado" loading="lazy"></div>
+      <div class="menu-card-body">
+        <div class="card-num">610</div>
+        <div class="card-jp">にぎりの盛り合わせ</div>
+        <h3>Surtido de Nigiris</h3>
+        <p>Selección de 10 piezas: salmón, atún, dorada, langostino y pez mantequilla.</p>
+        <div class="card-footer"><span class="card-price">14,90€</span><span class="card-tag">Para compartir</span></div>
+      </div>
+    </div>
+
+    <!-- COCINA -->
+    <div class="menu-card reveal" data-category="cocina" style="display:none">
       <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_ba02148c1e3a4760930ff43fbdc02180~mv2_d_1600_1200_s_2.jpeg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_ba02148c1e3a4760930ff43fbdc02180~mv2_d_1600_1200_s_2.jpeg" alt="Tataki de atún" loading="lazy"></div>
       <div class="menu-card-body">
         <div class="card-num">703</div>
@@ -631,7 +689,17 @@
         <div class="card-footer"><span class="card-price">11,60€</span><span class="card-tag">Tataki</span></div>
       </div>
     </div>
-    <div class="menu-card reveal" style="background:rgba(201,169,110,.04);border:1px solid rgba(201,169,110,.18);">
+    <div class="menu-card reveal" data-category="cocina" style="display:none">
+      <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_fc0ea1d4d1dd40f58d51b9a35bc76286~mv2_d_1200_1600_s_2.jpeg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_fc0ea1d4d1dd40f58d51b9a35bc76286~mv2_d_1200_1600_s_2.jpeg" alt="Gyoza" loading="lazy"></div>
+      <div class="menu-card-body">
+        <div class="card-num">201</div>
+        <div class="card-jp">餃子</div>
+        <h3>Gyoza</h3>
+        <p>Empanadillas japonesas rellenas de cerdo y verduras, a la plancha · 6 uds.</p>
+        <div class="card-footer"><span class="card-price">6,90€</span><span class="card-tag">Entrante</span></div>
+      </div>
+    </div>
+    <div class="menu-card reveal" data-category="cocina" style="display:none" style="background:rgba(201,169,110,.04);border:1px solid rgba(201,169,110,.18);">
       <div class="menu-card-img"><img src="https://static.wixstatic.com/media/0b96d8_8d135fc86dc24d5eb7f418e7335446b1~mv2.jpg/v1/fill/w_600,h_450,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_8d135fc86dc24d5eb7f418e7335446b1~mv2.jpg" alt="Combinación 5" loading="lazy"></div>
       <div class="menu-card-body">
         <div class="card-num" style="color:var(--gold)">811</div>
@@ -641,6 +709,7 @@
         <div class="card-footer"><span class="card-price" style="color:var(--gold-light)">39,90€</span><span class="card-tag" style="color:var(--gold);border-color:rgba(201,169,110,.4)">Para 2–3</span></div>
       </div>
     </div>
+
   </div>
   <div style="text-align:center;margin-top:64px;" class="reveal">
     <a href="https://www.tottorigava.com/_files/ugd/0b96d8_a8f9070652094b02bd70a9c6be7a6674.pdf" class="btn-primary" target="_blank">Descargar carta completa PDF</a>
@@ -718,6 +787,28 @@
       </a>
     </div>
     <a href="tel:936388770" class="btn-primary">Llamar ahora</a>
+
+    <div class="delivery-conditions">
+      <div class="delivery-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Condiciones envío a domicilio
+      </div>
+      <div class="delivery-min">Pedido mínimo 18€</div>
+      <div class="delivery-rows">
+        <div class="delivery-row">
+          <span class="delivery-zone">Gavà y hasta 3 km</span>
+          <span class="delivery-price free">Gratuito</span>
+        </div>
+        <div class="delivery-row">
+          <span class="delivery-zone">De 3 km a 5 km</span>
+          <span class="delivery-price">+3€</span>
+        </div>
+        <div class="delivery-row">
+          <span class="delivery-zone">Más de 5 km</span>
+          <span class="delivery-price">5€</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -788,10 +879,23 @@
 
   document.querySelectorAll('.menu-tab').forEach(t => {
     t.addEventListener('click', () => {
-      document.querySelectorAll('.menu-tab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.menu-tab').forEach(x => x.classList.remove('active'));
       t.classList.add('active');
+      const tab = t.dataset.tab;
+      document.querySelectorAll('.menu-card').forEach(card => {
+        if (card.dataset.category === tab) {
+          card.style.display = '';
+          // re-trigger reveal animation
+          card.classList.remove('visible');
+          setTimeout(() => card.classList.add('visible'), 60);
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   });
+  // Init: make sure first tab cards are visible
+  document.querySelectorAll('.menu-card[data-category="rolls"]').forEach(c => c.classList.add('visible'));
 </script>
 </body>
 </html>
