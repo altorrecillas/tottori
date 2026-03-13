@@ -24,18 +24,7 @@
   body {
     background: var(--black); color: var(--cream);
     font-family: 'Montserrat', sans-serif; font-weight: 300;
-    overflow-x: hidden; cursor: none;
-  }
-  .cursor {
-    position: fixed; width: 8px; height: 8px; background: var(--gold);
-    border-radius: 50%; pointer-events: none; z-index: 9999;
-    transform: translate(-50%,-50%); transition: width .3s, height .3s;
-  }
-  .cursor-ring {
-    position: fixed; width: 36px; height: 36px;
-    border: 1px solid rgba(201,169,110,.5); border-radius: 50%;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%,-50%);
+    overflow-x: hidden;
   }
   body::before {
     content: ''; position: fixed; inset: 0;
@@ -88,9 +77,12 @@
   .hero-bg {
     position:absolute; inset:0;
     background-image: url('https://static.wixstatic.com/media/0b96d8_959d9ea66c1f4d7bac330b101f362702~mv2.jpeg/v1/fill/w_1600,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_959d9ea66c1f4d7bac330b101f362702~mv2.jpeg');
-    background-size:cover; background-position:center;
+    background-size:cover; background-position:center center;
     animation: heroZoom 14s ease-out forwards;
   }
+  /* HERO IMAGE MOBILE — hidden on desktop */
+  .hero-img-mobile { display: none; }
+
   @keyframes heroZoom { from{transform:scale(1.06)} to{transform:scale(1)} }
   .hero-overlay {
     position:absolute; inset:0;
@@ -421,9 +413,41 @@
 
   /* ── MOBILE (≤640px) ── */
   @media(max-width:640px){
-    /* Hero */
-    .hero-actions { flex-direction: column; align-items: flex-start; gap: 20px; }
+    /* Hero — imagen completa + contenido debajo */
+    #hero {
+      flex-direction: column;
+      align-items: stretch;
+      height: auto;
+      min-height: 0;
+    }
+    .hero-bg { display: none; }
+    .hero-overlay { display: none; }
+    .hero-img-mobile {
+      display: block;
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+    }
+    .hero-kanji { display: none; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 40px 24px 56px;
+      max-width: 100%;
+      background: var(--black);
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .hero-tag  { animation: none; opacity: 1; }
+    h1         { animation: none; opacity: 1; }
+    .hero-sub  { animation: none; opacity: 1; }
+    .hero-actions {
+      flex-direction: column; align-items: flex-start; gap: 20px;
+      animation: none; opacity: 1;
+    }
     .btn-primary { width: 100%; text-align: center; padding: 18px 24px; }
+    .hero-scroll { display: none; }
 
     /* Strip */
     #strip { grid-template-columns: repeat(2,1fr); height: 180px; }
@@ -471,9 +495,6 @@
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <nav id="navbar">
   <a href="#" class="nav-logo"><span>TOTTORI</span>Restaurant Japonès</a>
   <ul class="nav-links">
@@ -501,6 +522,7 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
+  <img class="hero-img-mobile" src="https://static.wixstatic.com/media/0b96d8_959d9ea66c1f4d7bac330b101f362702~mv2.jpeg/v1/fill/w_1600,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b96d8_959d9ea66c1f4d7bac330b101f362702~mv2.jpeg" alt="Tottori Gavà">
   <div class="hero-overlay"></div>
   <div class="hero-kanji">鳥取</div>
   <div class="hero-content">
@@ -740,17 +762,6 @@
 </footer>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx=0, my=0, rx=0, ry=0;
-  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-  (function tick(){
-    rx += (mx-rx)*.14; ry += (my-ry)*.14;
-    cursor.style.left=mx+'px'; cursor.style.top=my+'px';
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    requestAnimationFrame(tick);
-  })();
-
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 80));
 
