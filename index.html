@@ -531,7 +531,7 @@
   <ul class="nav-links">
     <li><a href="#about">El Restaurante</a></li>
     <li><a href="https://altorrecillas.github.io/cartatottori/" target="_self" onclick="closeMobile()">Carta</a></li>
-    <li><a href="#daily">Menú del Día</a></li>
+    <li><a href="https://altorrecillas.github.io/menutottori/">Menú del Día</a></li>
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#location">Ubicación</a></li>
   </ul>
@@ -544,8 +544,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about"    onclick="closeMobile()">El Restaurante</a>
   <a href="https://altorrecillas.github.io/cartatottori/" target="_self" onclick="closeMobile()">Carta</a>
-  <a href="#daily"    onclick="closeMobile()">Menú del Día</a>
-  <a href="#galeria"  onclick="closeMobile()">Galería</a>
+  <a href="https://altorrecillas.github.io/menutottori/"    onclick="closeMobile()">Menú del Día</a>
   <a href="#location" onclick="closeMobile()">Ubicación</a>
   <a href="tel:936388770" class="mobile-cta">Reservar mesa</a>
 </div>
@@ -561,7 +560,7 @@
     <h1>Cocina<br><em>japonesa</em><br>auténtica</h1>
     <p class="hero-sub">鳥取 · Tottori · とっとり</p>
     <div class="hero-actions">
-      <a href="#daily" class="btn-primary">Menú del día</a>
+      <a href="https://altorrecillas.github.io/menutottori/" class="btn-primary">Menú del día</a>
       <a href="https://altorrecillas.github.io/cartatottori/" target="_self" onclick="closeMobile()" class="btn-ghost">Ver la carta <svg width="20" height="10" viewBox="0 0 20 10" fill="none"><path d="M0 5H18M14 1L18 5L14 9" stroke="currentColor" stroke-width="1"/></svg></a>
     </div>
   </div>
@@ -827,7 +826,7 @@
     </div>
     <div class="loc-row">
       <div class="loc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 005 5L15 12l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></div>
-      <div><div class="loc-label">Contacto</div><div class="loc-val"><a href="tel:936388770">93 638 87 70</a><br><a href="tel:688006355">688 006 355</a><br><a href="mailto:tottorigava@gmail.com">tottorigava@gmail.com</a></div></div>
+      <div><div class="loc-label">Contacto</div><div class="loc-val"><a href="tel:936388770">93 638 87 70</a><br><a href="tel:688006355">688 006 355</a><br><a href="/cdn-cgi/l/email-protection#9de9f2e9e9f2eff4fafcebfcddfaf0fcf4f1b3fef2f0"><span class="__cf_email__" data-cfemail="c2b6adb6b6adb0aba5a3b4a382a5afa3abaeeca1adaf">[email&#160;protected]</span></a></div></div>
     </div>
     <div class="loc-row">
       <div class="loc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
@@ -843,16 +842,15 @@
   <div class="footer-logo">TOTTORI <span>Restaurant japonès · Gavà</span></div>
   <ul class="footer-links">
     <li><a href="#about">El Restaurante</a></li>
-    <li><a href="#menu">Carta</a></li>
-    <li><a href="#daily">Menú</a></li>
-    <li><a href="#galeria">Galería</a></li>
+    <li><a href="https://altorrecillas.github.io/cartatottori/">Carta</a></li>
+    <li><a href="https://altorrecillas.github.io/menutottori/">Menú</a></li>
     <li><a href="#reservas">Reservas</a></li>
     <li><a href="https://www.tottorigava.com/avisolegal" target="_blank">Aviso Legal</a></li>
   </ul>
   <div class="footer-copy">© 2026 Tottori Gavà · Barcelona</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 80));
 
@@ -894,8 +892,6 @@
       });
     });
   });
-  // Init: make sure first tab cards are visible
-  document.querySelectorAll('.menu-card[data-category="rolls"]').forEach(c => c.classList.add('visible'));
 </script>
 </body>
 </html>
